@@ -3,9 +3,9 @@ import mysql from "mysql";
 import cors from 'cors';
 import mongoose from "mongoose";
 // import databaseConfig from "../Backend/config/mongoose.js";
-import databaseConfig from "./config/mongoose";
+import databaseConfig from "./config/mongoose.js";
 
-import Books  from "./model/books";
+import Books  from "./model/books.js";
 import { MongoClient }  from "mongodb";
 
 
