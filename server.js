@@ -66,14 +66,15 @@ const predefinedAdmin = new Admin({
     password: 'Tushar@2002', // You should ideally hash passwords for security
   });
   
-  // Insert the predefined admin user
-  predefinedAdmin.save((err, admin) => {
-    if (err) {
-      console.error('Error inserting predefined admin:', err);
-    } else {
-      console.log('Predefined admin inserted:', admin);
-    }
+  predefinedAdmin
+  .save()
+  .then((admin) => {
+    console.log('Predefined admin inserted:', admin);
+  })
+  .catch((err) => {
+    console.error('Error inserting predefined admin:', err);
   });
+
 
 const db = mysql.createConnection({
     host :"localhost",
