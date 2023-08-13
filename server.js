@@ -27,10 +27,10 @@ app.use(express.urlencoded({extended : false}));
 // const authFunction=(auth)=>{
 //     auth = true;
 // }
-const BASE_URL = "https://www.studybuddy.store";
+const BASE_URL = process.env.PUBLIC_URL;
 const storage = multer.diskStorage({
     destination : (req,res,cb)=>{
-        cb(null,`${BASE_URL}/public/assets/images/ncertBooks`)
+        cb(null,`${BASE_URL}/assets/images/ncertBooks`)
     },
     filename :(req,file,cb)=>{
         cb(null, req.body.subject+"_"+req.body.class+ "_" + "" + Date.now() + path.extname(file.originalname));
@@ -44,7 +44,7 @@ const upload = multer({
 
 const syllabuSstorage = multer.diskStorage({
     destination : (req,res,cb)=>{
-        cb(null,`${BASE_URL}/public/assets/images/ncertSyllabus`)
+        cb(null,`${BASE_URL}/assets/images/ncertSyllabus`)
     },
     filename :(req,file,cb)=>{
         cb(null, file.fieldname + "" + Date.now() + path.extname(file.originalname));
