@@ -377,7 +377,7 @@ app.delete("/books/delete/:id&:files", async (req, res) => {
 
 // app.get("/books6",(req,res)=>{
 
-//     const sql = "SELECT * FROM `books` WHERE Class=6";
+//     const sql = "SELECT * FROM `books` WHERE class=6";
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
 //         return res.json(result);
@@ -387,7 +387,7 @@ app.delete("/books/delete/:id&:files", async (req, res) => {
 
 // app.get("/scienceBooks6",(req,res)=>{
 //     const {subject} = "Science";
-//     const sql = "SELECT * FROM `books` WHERE Class=6 AND Subject=Science";
+//     const sql = "SELECT * FROM `books` WHERE class=6 AND Subject=Science";
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
 //         return res.json(result);
@@ -397,7 +397,8 @@ app.delete("/books/delete/:id&:files", async (req, res) => {
 
 app.get("/books6", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 6 });
+      const books = await Books.find({ class: '6' });
+      console.log(books);
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -407,7 +408,7 @@ app.get("/books6", async (req, res) => {
   app.get("/scienceBooks6", async (req, res) => {
     try {
       const subject = "Science";
-      const books = await Books.find({ Class: 6, Subject: subject });
+      const books = await Books.find({ class: 6, Subject: subject });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -418,7 +419,7 @@ app.get("/books6", async (req, res) => {
 
 
 // app.get("/books7",(req,res)=>{
-//     const sql = "SELECT * FROM `books` WHERE Class=7";
+//     const sql = "SELECT * FROM `books` WHERE class=7";
 //     // res.sendFile(__dirname +"/books");
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
@@ -431,7 +432,7 @@ app.get("/books6", async (req, res) => {
 
 
 // app.get("/books12",(req,res)=>{
-//     const sql = "SELECT * FROM `books` WHERE Class=12";
+//     const sql = "SELECT * FROM `books` WHERE class=12";
 //     // res.sendFile(__dirname +"/books");
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
@@ -444,7 +445,7 @@ app.get("/books6", async (req, res) => {
 
 
 // app.get("/books11",(req,res)=>{
-//     const sql = "SELECT * FROM `books` WHERE Class=11";
+//     const sql = "SELECT * FROM `books` WHERE class=11";
 //     // res.sendFile(__dirname +"/books");
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
@@ -456,7 +457,7 @@ app.get("/books6", async (req, res) => {
 
 
 // app.get("/books10",(req,res)=>{
-//     const sql = "SELECT * FROM `books` WHERE Class=10";
+//     const sql = "SELECT * FROM `books` WHERE class=10";
 //     // res.sendFile(__dirname +"/books");
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
@@ -469,7 +470,7 @@ app.get("/books6", async (req, res) => {
 
 
 // app.get("/books9",(req,res)=>{
-//     const sql = "SELECT * FROM `books` WHERE Class=9";
+//     const sql = "SELECT * FROM `books` WHERE class=9";
 //     // res.sendFile(__dirname +"/books");
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
@@ -481,7 +482,7 @@ app.get("/books6", async (req, res) => {
 
 
 // app.get("/books8",(req,res)=>{
-//     const sql = "SELECT * FROM `books` WHERE Class=8";
+//     const sql = "SELECT * FROM `books` WHERE class=8";
 //     // res.sendFile(__dirname +"/books");
 //     db.query(sql,(err,result)=>{
 //         if(err) return res.json({Message : "Error in connecting database"});
@@ -493,7 +494,7 @@ app.get("/books6", async (req, res) => {
 
 app.get("/books7", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 7 });
+      const books = await Books.find({ class: 7 });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -502,7 +503,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books12", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 12 });
+      const books = await Books.find({ class: 12 });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -511,7 +512,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books11", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 11 });
+      const books = await Books.find({ class: 11 });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -520,7 +521,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books10", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 10 });
+      const books = await Books.find({ class: 10 });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -529,7 +530,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books9", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 9 });
+      const books = await Books.find({ class: 9 });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -538,7 +539,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books8", async (req, res) => {
     try {
-      const books = await Books.find({ Class: 8 });
+      const books = await Books.find({ class: 8 });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
