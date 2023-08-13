@@ -1,6 +1,6 @@
 // Backend/model/Admin.js
 
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
   username: String,
