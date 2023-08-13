@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from "mongoose";
 // import databaseConfig from "../Backend/config/mongoose.js";
 import databaseConfig from "./config/mongoose.js";
+import Admin from "./model/Admin.js";
 
 import Books  from "./model/books.js";
 import { MongoClient }  from "mongodb";
@@ -60,7 +61,19 @@ const uploadSyllabus = multer({
 //     database:"vhfaxmrm_studybuddy"
 // })
 
-
+const predefinedAdmin = new Admin({
+    username: 'studybuddy',
+    password: 'Tushar@2002', // You should ideally hash passwords for security
+  });
+  
+  // Insert the predefined admin user
+  predefinedAdmin.save((err, admin) => {
+    if (err) {
+      console.error('Error inserting predefined admin:', err);
+    } else {
+      console.log('Predefined admin inserted:', admin);
+    }
+  });
 
 const db = mysql.createConnection({
     host :"localhost",
@@ -72,42 +85,62 @@ const db = mysql.createConnection({
 //     res.sendfile('index.ejs');
 // });
 
-app.get("/",(req,res)=>{
-    const sql = "SELECT * FROM `admin`";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
+// app.get("/",(req,res)=>{
+//     const sql = "SELECT * FROM `admin`";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
 
 
 
 // login url
-app.post('/login', (req, res) => {
+
+  
+  // Handle login
+  app.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    if (username && password) {
-      db.query(
-        'SELECT * FROM admin WHERE username = ? AND password = ?',
-        [username, password],
-        (err, results) => {
-          if (err) {
-            throw err;
-          }
-          if (results.length > 0) {
-            const user = results[0];
-            const token = jwt.sign({ id: user.id, username: user.username }, 'your_secret_key');
-            res.json({ Login : true, token , results});
-          } else {
-            res.status(401).json({ error: 'Invalid username or password' });
-          }
-        }
-      );
-    } else {
-      res.status(400).json({ error: 'Please enter username and password' });
+  
+    try {
+      const admin = await Admin.findOne({ username, password });
+      if (admin) {
+        const token = jwt.sign({ id: admin._id, username: admin.username }, 'tushar@2002');
+        res.json({ Login: true, token, admin });
+      } else {
+        res.status(401).json({ error: 'Invalid username or password' });
+      }
+    } catch (error) {
+      res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+
+// app.post('/login', (req, res) => {
+//     const { username, password } = req.body;
+//     if (username && password) {
+//       db.query(
+//         'SELECT * FROM admin WHERE username = ? AND password = ?',
+//         [username, password],
+//         (err, results) => {
+//           if (err) {
+//             throw err;
+//           }
+//           if (results.length > 0) {
+//             const user = results[0];
+//             const token = jwt.sign({ id: user.id, username: user.username }, 'your_secret_key');
+//             res.json({ Login : true, token , results});
+//           } else {
+//             res.status(401).json({ error: 'Invalid username or password' });
+//           }
+//         }
+//       );
+//     } else {
+//       res.status(400).json({ error: 'Please enter username and password' });
+//     }
+//   });
   
 
 
