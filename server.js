@@ -375,105 +375,176 @@ app.delete("/books/delete/:id&:files", async (req, res) => {
 });
 
 
-app.get("/books6",(req,res)=>{
+// app.get("/books6",(req,res)=>{
 
-    const sql = "SELECT * FROM `books` WHERE Class=6";
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        return res.json(result);
-    })
-})
-
-
-app.get("/scienceBooks6",(req,res)=>{
-    const {subject} = "Science";
-    const sql = "SELECT * FROM `books` WHERE Class=6 AND Subject=Science";
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        return res.json(result);
-    })
-})
+//     const sql = "SELECT * FROM `books` WHERE Class=6";
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         return res.json(result);
+//     })
+// })
 
 
+// app.get("/scienceBooks6",(req,res)=>{
+//     const {subject} = "Science";
+//     const sql = "SELECT * FROM `books` WHERE Class=6 AND Subject=Science";
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         return res.json(result);
+//     })
+// })
 
 
-
-
-app.get("/books7",(req,res)=>{
-    const sql = "SELECT * FROM `books` WHERE Class=7";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
-
-
-
-
-app.get("/books12",(req,res)=>{
-    const sql = "SELECT * FROM `books` WHERE Class=12";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
+app.get("/books6", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 6 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
+  app.get("/scienceBooks6", async (req, res) => {
+    try {
+      const subject = "Science";
+      const books = await Books.find({ Class: 6, Subject: subject });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
 
 
 
-
-app.get("/books11",(req,res)=>{
-    const sql = "SELECT * FROM `books` WHERE Class=11";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
-
-
-
-app.get("/books10",(req,res)=>{
-    const sql = "SELECT * FROM `books` WHERE Class=10";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
+// app.get("/books7",(req,res)=>{
+//     const sql = "SELECT * FROM `books` WHERE Class=7";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
 
 
 
 
-app.get("/books9",(req,res)=>{
-    const sql = "SELECT * FROM `books` WHERE Class=9";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
+// app.get("/books12",(req,res)=>{
+//     const sql = "SELECT * FROM `books` WHERE Class=12";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
 
 
 
-app.get("/books8",(req,res)=>{
-    const sql = "SELECT * FROM `books` WHERE Class=8";
-    // res.sendFile(__dirname +"/books");
-    db.query(sql,(err,result)=>{
-        if(err) return res.json({Message : "Error in connecting database"});
-        // res.sendFile("books");
-        return res.json(result);
-    })
-})
+
+// app.get("/books11",(req,res)=>{
+//     const sql = "SELECT * FROM `books` WHERE Class=11";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
 
 
 
+// app.get("/books10",(req,res)=>{
+//     const sql = "SELECT * FROM `books` WHERE Class=10";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
+
+
+
+
+// app.get("/books9",(req,res)=>{
+//     const sql = "SELECT * FROM `books` WHERE Class=9";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
+
+
+
+// app.get("/books8",(req,res)=>{
+//     const sql = "SELECT * FROM `books` WHERE Class=8";
+//     // res.sendFile(__dirname +"/books");
+//     db.query(sql,(err,result)=>{
+//         if(err) return res.json({Message : "Error in connecting database"});
+//         // res.sendFile("books");
+//         return res.json(result);
+//     })
+// })
+
+
+app.get("/books7", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 7 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
+  app.get("/books12", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 12 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
+  app.get("/books11", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 11 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
+  app.get("/books10", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 10 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
+  app.get("/books9", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 9 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
+  app.get("/books8", async (req, res) => {
+    try {
+      const books = await Books.find({ Class: 8 });
+      return res.json(books);
+    } catch (error) {
+      return res.status(500).json({ Message: "Error in connecting database" });
+    }
+  });
+  
 
 // app.post("/books", upload.single("image") ,(req,res)=>{
 //     const sql ="INSERT INTO `books`( `bookname`, `booktitle`, `class`, `subject`, `pdffile`, `description`) VALUES(?)";
