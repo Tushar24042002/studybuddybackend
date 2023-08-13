@@ -23,19 +23,39 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
-// var auth = false;
-// const authFunction=(auth)=>{
-//     auth = true;
-// }
-// const BASE_URL = process.env.PUBLIC_URL;
+import fs from "fs";
+
+const assetsFolder = './assets'; // Adjust the path as needed
+
+if (!fs.existsSync(assetsFolder)) {
+  fs.mkdirSync(assetsFolder);
+}
+
+// Set the base URL for file storage
+const BASE_URL = './assets/';
+
+
+const ncertBooksFolderPath = `${BASE_URL}/ncertBooks`;
+if (!fs.existsSync(ncertBooksFolderPath)) {
+  fs.mkdirSync(ncertBooksFolderPath);
+}
+
+
 const storage = multer.diskStorage({
-    destination : (req,res,cb)=>{
-        cb(null,`/assets/images/ncertBooks`)
-    },
-    filename :(req,file,cb)=>{
-        cb(null, req.body.subject+"_"+req.body.class+ "_" + "" + Date.now() + path.extname(file.originalname));
-    }
-})
+  destination: (req, file, cb) => {
+    cb(null, ncertBooksFolderPath);
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      `${req.body.subject}_${req.body.class}_${Date.now()}${path.extname(file.originalname)}`
+    );
+  },
+});
+
+
+// Now you can use the 'upload' middleware to handle file uploads
+
 
 const upload = multer({
     storage :storage
@@ -44,7 +64,7 @@ const upload = multer({
 
 const syllabuSstorage = multer.diskStorage({
     destination : (req,res,cb)=>{
-        cb(null,`/assets/images/ncertSyllabus`)
+        cb(null,`${BASE_URL}/ncertSyllabus`)
     },
     filename :(req,file,cb)=>{
         cb(null, file.fieldname + "" + Date.now() + path.extname(file.originalname));
