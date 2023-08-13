@@ -23,7 +23,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
+
+
 import fs from "fs";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
+// Now you can use __dirname as before
+console.log(__dirname);
 
 const assetsFolder = './assets'; // Adjust the path as needed
 
@@ -337,7 +347,7 @@ app.post('/edit-books/:id&:files', upload.single("image"), async (req, res, next
 
           if (files) {
               // Delete the previous image file
-              unlink(`../Frontend/public/assets/images/ncertBooks/${files}`, (err) => {
+              unlink(`${ncertBooksFolderPath}/${files}`, (err) => {
                   if (err) throw err;
                   console.log('Previous image file was deleted');
               });
@@ -378,7 +388,7 @@ app.delete("/books/delete/:id&:files", async (req, res) => {
       const { id, files } = req.params;
 
       // Delete the image file
-      unlink(`../Frontend/public/assets/images/ncertBooks/${files}`, (err) => {
+      unlink(`${ncertBooksFolderPath}/${files}`, (err) => {
           if (err) throw err;
           console.log('Image file was deleted');
       });
