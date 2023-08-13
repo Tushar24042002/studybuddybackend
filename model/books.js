@@ -10,7 +10,6 @@ const BookSchema = new mongoose.Schema({
     booktitle : {
         type : 'String',
         required : true,
-        // unique : true
     },
     class : {
         type : 'String',
@@ -26,7 +25,7 @@ const BookSchema = new mongoose.Schema({
   },
   description:{
     type:'String',
-    required :true
+    required :false
   }
 }, 
 {
