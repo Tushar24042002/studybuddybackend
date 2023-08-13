@@ -439,7 +439,7 @@ app.get("/books6", async (req, res) => {
   app.get("/scienceBooks6", async (req, res) => {
     try {
       const subject = "Science";
-      const books = await Books.find({ class: 6, Subject: subject });
+      const books = await Books.find({ class: '6', subject: subject });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -525,7 +525,7 @@ app.get("/books6", async (req, res) => {
 
 app.get("/books7", async (req, res) => {
     try {
-      const books = await Books.find({ class: 7 });
+      const books = await Books.find({ class: '7' });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -534,7 +534,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books12", async (req, res) => {
     try {
-      const books = await Books.find({ class: 12 });
+      const books = await Books.find({ class: '12' });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -543,7 +543,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books11", async (req, res) => {
     try {
-      const books = await Books.find({ class: 11 });
+      const books = await Books.find({ class: '11' });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -552,7 +552,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books10", async (req, res) => {
     try {
-      const books = await Books.find({ class: 10 });
+      const books = await Books.find({ class: '10' });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -561,7 +561,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books9", async (req, res) => {
     try {
-      const books = await Books.find({ class: 9 });
+      const books = await Books.find({ class: '9' });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
@@ -570,7 +570,7 @@ app.get("/books7", async (req, res) => {
   
   app.get("/books8", async (req, res) => {
     try {
-      const books = await Books.find({ class: 8 });
+      const books = await Books.find({ class: '8' });
       return res.json(books);
     } catch (error) {
       return res.status(500).json({ Message: "Error in connecting database" });
