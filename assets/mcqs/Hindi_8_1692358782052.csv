@@ -1,0 +1,6 @@
+testName,subject,className,questionText,option1,option2,option3,option4,correctIndex
+Sample Test,Science,Class 10,What is the capital of France?,Paris,London,Berlin,Rome,1
+Sample Test,Science,Class 10,What is the largest planet in our solar system?,Jupiter,Mars,Venus,Saturn,1
+Sample Test,Science,Class 10,What gas do plants use for photosynthesis?,Carbon dioxide,Nitrogen,Oxygen,Hydrogen,1
+Sample Test,Science,Class 10,Which force keeps objects on the ground?,Gravity,Friction,Electricity,Magnetism,1
+Sample Test,Science,Class 10,What is the chemical symbol for water?,H2O,CO2,O2,N2,1

@@ -1,0 +1,176 @@
+  <script type="application/ld+json">
+     {
+       "@context": "https://schema.org/",
+       "@type": "Recipe",
+       "name": "Party Coffee Cake",
+       "author": {
+         "@type": "Person",
+         "name": "Mary Stone"
+       },
+       "datePublished": "2018-03-10",
+       "description": "This coffee cake is awesome and perfect for parties.",
+       "prepTime": "PT20M"
+     }
+     </script>
+
+
+
+
+
+<script type="application/ld+json">
+ {
+   "@context": "https://schema.org/", 
+   "@type": "BreadcrumbList", 
+   "itemListElement": [{
+     "@type": "ListItem", 
+     "position": 1, 
+     "name": "Home - Page",
+     "item": "https://studybuddy.store/"  
+   },{
+     "@type": "ListItem", 
+     "position": 2, 
+     "name": "CBSE Notes - Page",
+     "item": "https://studybuddy.store/notes"  
+   },{
+     "@type": "ListItem", 
+     "position": 3, 
+     "name": "CBSE Syllabus - page",
+     "item": "https://studybuddy.store/syllabus"  
+   },{
+     "@type": "ListItem", 
+     "position": 4, 
+     "name": "CBSE Previous Year Papers",
+     "item": "https://studybuddy.store/py-ques"  
+   },{
+     "@type": "ListItem", 
+     "position": 5, 
+     "name": "CBSE Sample Papers",
+     "item": "https://studybuddy.store/quespaper"  
+   }]
+ }
+ </script>
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HighSchool",
+  "name": "Study Buddy",
+  "url": "https://studybuddy.store/",
+  "logo": "https://studybuddy.store/assets/images/logo-four.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "8882060228",
+    "contactType": "technical support",
+    "contactOption": "TollFree",
+    "areaServed": "IN",
+    "availableLanguage": "en"
+  },
+  "sameAs": [
+    "https://www.facebook.com/sahilgupta3756",
+    "https://www.instagram.com/tushar_gupta2404/",
+    "https://www.linkedin.com/in/tushar-gupta-778375227",
+    "https://www.linkedin.com/in/tushar-gupta-778375227",
+    "https://studybuddy.store/"
+  ]
+}
+</script>
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "Study Buddy",
+  "url": "https://studybuddy.store/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://studybuddy.store/py-ques{search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "Study Buddy",
+  "url": "https://studybuddy.store/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://studybuddy.store/py-ques{search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+
+https://technicalseo.com/tools/schema-markup-generator/
+
+
+https://audit.kreatizz.com/report?token=df428023-ec3d-44e1-b9a6-5166c12ec905
+
+
+
+Studybuddy: one stop solution for your tuition and test preparation. Study Buddy aims to provide quality education to students with a range of subjects, support services and latest news in the field of education.
+
+
+
+StudyBuddy provides you complete solutions to your doubts, where we provide all questions with detailed solutions, study material, previous year question papers and many more at free of cost
+
+
+
+
+studybuddy.in is one of the best educational website in India that provides all study materials like notes, syllabus, answers, sample papers and previous year papers
+
+
+
+
+Studybuddy is a platform for students to access their notes, syllabus, deleted syllabus, answers solutions, sample paper and previous year papers in pdf form
+
+
+
+
+Leading the way to success. Study buddy is where you can get everything you need to make your academic experience easy, effective and enjoyable.
+
+
+
+
+
+   <meta name="description"
+        content="Radionics tech is one of the best web development company in INDIA having a team of professional web developers. We are passionate about solving complex problems through simplified solutions." />
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="" />
+    <link rel="canonical" href="https://radionics.org.in/" />
+
+    <meta property="og:title" content="Best Web Development Company in INDIA - Radionics tech" />
+
+    <meta property="og:description"
+        content="Radionics tech is one of the best web development company in INDIA having a team of professional web developers. We are passionate about solving complex problems through simplified solutions." />
+    <meta property="og:type" content="Website" />
+    <meta property="og:url" content="https://radionics.org.in/" />
+    <meta property="og:image"
+        content="https://radionics.org.in/assets/images/ALL%20Technology%20Icon%20update-01.png" />
+    <meta property="og:site_name" content="Radionics tech" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Best Web Development Company in INDIA - Radionics tech">
+    <meta name="twitter:description"
+        content="Radionics tech is one of the best web development company in INDIA having a team of professional web developers. We are passionate about solving complex problems through simplified solutions.">
+    <link rel="icon" href="assets/images/fav.png" media="screen" type="image/png" sizes="52x52">
