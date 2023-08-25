@@ -32,7 +32,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
-app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
+app.use(session({ secret: 'Tushar@2002', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -135,9 +135,10 @@ app.post("/createSyllabus", uploadSyllabus.single("image") ,(req,res)=>{
 })
 
 
-passport.use(new LocalStrategy(async (username, password, done) => {
+passport.use(new LocalStrategy(async (email, password, done) => {
+  console.log(email);
   try {
-    const user = await User.findOne({ username: username });
+    const user = await User.findOne({ email: email });
     if (!user) return done(null, false, { message: 'Incorrect username.' });
 
     const isValidPassword = await user.isValidPassword(password);

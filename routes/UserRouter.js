@@ -13,17 +13,48 @@ router.get('/login', (req, res) => {
   res.send('Login Page');
 });
 
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/dashboard',
-  failureRedirect: '/login'
-}));
+// router.post('/userlogin', passport.authenticate('local', {
+//   successRedirect: console.log("logged in"),
+//   failureRedirect: '/userlogin'
+// }), (req, res) => {return res});
+
+
+router.post('/userlogin', (req, res, next) => {
+  // Authenticate using Passport's local strategy
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      console.error('Authentication error:', err);
+      return res.status(500).send('Authentication failed');
+    }
+
+    if (!user) {
+      console.log('Authentication failed:', info.message);
+      return res.redirect('/userlogin'); // Redirect to login page upon failure
+    }
+
+    // Custom handling upon successful authentication
+    console.log(user);
+    
+    // You can perform additional actions here
+    
+    // Return the user details as the response
+    const { password, ...userInfo } = user;
+    return res.send(userInfo); // Send response with user details
+  })(req, res, next);
+});
 
 router.get('/signup', (req, res) => {
   res.send('Signup Page');
 });
 
 router.post('/signup', async (req, res) => {
-  const { username, password } = req.body;
+  console.log(req);
+  const username= req.body.username;
+  const phone = req.body.phone;
+  const phoneString = phone.toString();
+  const email = req.body.email;
+  const password = req.body.password;
+  // const { email, password } = req.body;
   console.log(req.body);
 
   try {
@@ -34,7 +65,7 @@ router.post('/signup', async (req, res) => {
     console.log('Password:', password);
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ email,mobile : phoneString,username, password: hashedPassword });
     await newUser.save();
     res.redirect('/login');
   } catch (error) {
