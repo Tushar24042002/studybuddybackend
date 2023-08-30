@@ -17,9 +17,9 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import User from './model/User.js';
 import UserRouter from "./routes/UserRouter.js"
 
-const uri = "mongodb://localhost/studybuddy";
+// const uri = "mongodb://localhost/studybuddy";
 
-// const uri = 'mongodb+srv://tushargupta24042002:Tushar24042002@cluster0.xoo7rki.mongodb.net/studybuddy?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://tushargupta24042002:Tushar24042002@cluster0.xoo7rki.mongodb.net/studybuddy?retryWrites=true&w=majority';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 // import upload from 'express-fileupload';
 // const upload = require('express-fileupload');

@@ -49,13 +49,11 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', async (req, res) => {
   console.log(req);
-  const username= req.body.username;
+  const username = req.body.username;
   const phone = req.body.phone;
   const phoneString = phone.toString();
   const email = req.body.email;
   const password = req.body.password;
-  // const { email, password } = req.body;
-  console.log(req.body);
 
   try {
     if (!password) {
@@ -65,19 +63,51 @@ router.post('/signup', async (req, res) => {
     console.log('Password:', password);
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = new User({ email,mobile : phoneString,username, password: hashedPassword });
+    const newUser = new User({ email, mobile: phoneString, username, password: hashedPassword });
     await newUser.save();
-    res.redirect('/login');
+    return res.send({ message: 'User Signup Successfully' });
   } catch (error) {
-    console.error('Error hashing password:', error);
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
+      // Handle duplicate email error
+      console.error('Email is already registered:', error);
+      return res.status(400).send('Email is already registered');
+    }
+
+    console.error('Error signing up:', error);
     res.status(500).send('Error signing up');
   }
 });
 
-router.get('/dashboard', (req, res) => {
+
+
+
+// Logout functionality
+router.get('/logout', (req, res) => {
+  try {
+    req.logout(function(err) {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Error logging out'); // Handle errors during logout
+      } else {
+        console.log("logged out successfulyy");
+        res.send('Logged out successfully'); // Send a response after successful logout
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error logging out'); // Handle other errors
+  }
+});
+
+
+
+
+router.get('/auth', (req, res) => {
   if (req.isAuthenticated()) {
+   return res.send(true);
     res.send('Dashboard Page');
   } else {
+   return res.send(false);
     res.redirect('/login');
   }
 });
